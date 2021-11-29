@@ -7,9 +7,17 @@ var specialCharacters = ["!","#","$","%","^","&","*","(",")","`","=","-","_","+"
 // numeric characters
 var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9',];
 // alphabetical characters
-var lettersLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var Lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-var lettersUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var Uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+// var declaration
+var confirmLength = "";
+var confirmSpecialCharacter;
+var confirmNumericCharacter;
+var confirmLowercase;
+var confirmUppercase;
+
 
 
 //when user clicks generate password button prompt user for length of password
@@ -31,30 +39,31 @@ var confirmUppercase = confirm("Click ok if you would like to use uppercase char
 var confirmLowercase = confirm("Click ok if you would like to use lowercase characters");
 
 // while loop in case answer does not meet criteria
-while (confirmUpperCase === false && confirmLowerCase === false && confirmSpecialCharacter === false && confirmNumericCharacter === false){ 
-    alert("You must pick an option")
-var confirmSpecialCharacter = confirm("Click ok if you would like to use special characters");
-var confirmNumericCharacter = confirm("Click ok if you would like to use numeric characters");
-var confirmUppercase = confirm("Click ok if you would like to use uppercase characters");
-var confirmLowercase = confirm("Click ok if you would like to use lowercase characters");
+while(confirmLowercase === false && confirmLowercase === false && confirmSpecialCharacter === false && confirmNumericCharacter === false) {
+    alert("You must choose at least one parameter");
+    var confirmSpecialCharacter = confirm("Click ok if you would like to use special characters");
+    var confirmNumericCharacter = confirm("Click ok if you would like to use numeric characters");
+    var confirmUppercase = confirm("Click ok if you would like to use uppercase characters");
+    var confirmLowercase = confirm("Click ok if you would like to use lowercase characters"); 
+} 
 
 // Fix this password parameters
 var passwordCharacters = []
 
 if(confirmSpecialCharacter) {
-    passwordCharacters = passwordCharacters.concat(specialChar)
+    passwordCharacters = passwordCharacters.concat(specialCharacters)
 }
 
 if(confirmNumericCharacter){
-    passwordCharacters = passwordCharacters.concat(number)
+    passwordCharacters = passwordCharacters.concat(numbers)
 }
 
 if (confirmUppercase){
-passwordCharacters = passwordCharacters.concat(alphaUpper)
+passwordCharacters = passwordCharacters.concat(Uppercase)
 }
 
 if (confirmLowercase){
-    passwordCharacters = passwordCharacters.concat(alphaUpper)
+    passwordCharacters = passwordCharacters.concat(Lowercase)
     }
 
 console.log(passwordCharacters)
@@ -78,7 +87,3 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
-
-
-
