@@ -7,7 +7,7 @@ var specialCharacters = ["!","#","$","%","^","&","*","(",")","`","=","-","_","+"
 // numeric characters
 var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9',];
 // alphabetical characters
-var lettersUpper = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var lettersLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 var lettersUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
@@ -15,22 +15,59 @@ var lettersUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
 //when user clicks generate password button prompt user for length of password
 function generatePassword (){
     var confirmLength = (prompt("How many characters would you like the password to have?"));
-}
 //while loop in case answer does not fit criteria 
 while(confirmLength<= 7 || confirmLength >= 128){
     alert("Password length must be between 8-128 characters");
 var confirmLength = (prompt("How many characters would you like you password to contain"));
 }
 
-//display length of random characters corresponding to user length parameter
+//display length of random characters corresponding to user length parameters
 alert(`Your password will have ${confirmLength}characters`);
 
 //determine what parameters are for use later
-var confirmSpecialCharacter = confirm("Click ok if you would like to use special characters")
+var confirmSpecialCharacter = confirm("Click ok if you would like to use special characters");
+var confirmNumericCharacter = confirm("Click ok if you would like to use numeric characters");
+var confirmUppercase = confirm("Click ok if you would like to use uppercase characters");
+var confirmLowercase = confirm("Click ok if you would like to use lowercase characters");
 
-//randomly select characters from user selections for password and store them
+// while loop in case answer does not meet criteria
+while (confirmUpperCase === false && confirmLowerCase === false && confirmSpecialCharacter === false && confirmNumericCharacter === false){ 
+    alert("You must pick an option")
+var confirmSpecialCharacter = confirm("Click ok if you would like to use special characters");
+var confirmNumericCharacter = confirm("Click ok if you would like to use numeric characters");
+var confirmUppercase = confirm("Click ok if you would like to use uppercase characters");
+var confirmLowercase = confirm("Click ok if you would like to use lowercase characters");
 
+// Fix this password parameters
+var passwordCharacters = []
 
+if(confirmSpecialCharacter) {
+    passwordCharacters = passwordCharacters.concat(specialChar)
+}
+
+if(confirmNumericCharacter){
+    passwordCharacters = passwordCharacters.concat(number)
+}
+
+if (confirmUppercase){
+passwordCharacters = passwordCharacters.concat(alphaUpper)
+}
+
+if (confirmLowercase){
+    passwordCharacters = passwordCharacters.concat(alphaUpper)
+    }
+
+console.log(passwordCharacters)
+
+//randomly select characters from user selections for password
+var randomPassword = ""
+
+for( var i = 0; i <confirmLength; i++){
+    randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+    console.log(randomPassword)
+}
+return randomPassword;
+}
 
 
 // Write password to the #password input
