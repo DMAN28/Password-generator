@@ -40,7 +40,7 @@ var confirmLowercase = confirm("Click ok if you would like to use lowercase char
 
 // while loop in case answer does not meet criteria
 while(confirmLowercase === false && confirmLowercase === false && confirmSpecialCharacter === false && confirmNumericCharacter === false) {
-    alert("You must choose at least one parameter");
+    alert("You must pick one option");
     var confirmSpecialCharacter = confirm("Click ok if you would like to use special characters");
     var confirmNumericCharacter = confirm("Click ok if you would like to use numeric characters");
     var confirmUppercase = confirm("Click ok if you would like to use uppercase characters");
