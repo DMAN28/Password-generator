@@ -1,3 +1,6 @@
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
 //create character banks for numbers letters and special characters
 var specialCharacters = ["!","#","$","%","^","&","*","(",")","`","=","-","_","+","\:","<",">","?","}","?","{"];
 // numeric characters
@@ -18,10 +21,13 @@ while(confirmLength<= 7 || confirmLength >= 128){
 var confirmLength = (prompt("How many characters would you like you password to contain"));
 }
 
+//display length of random characters corresponding to user length parameter
+alert(`Your password will have ${confirmLength}characters`);
+
 //store character selections for use later
 //randomly select characters from user selections for password and store them
 //prompt user for length of password
-//display length of random characters corresponding to user length parameter
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -35,7 +41,6 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
 
 
